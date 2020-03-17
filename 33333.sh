@@ -1,4 +1,6 @@
 #!/bin/bash
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/bin:/sbin
+export PATH
 
 function v2ray(){
     echo "###   v2ray后端一键对接脚本v1.0   ###"
@@ -37,8 +39,6 @@ function v2ray(){
     echo " "
     echo -e "\033[42;37m 安装完成 \033[0m"
 }
-
-
 
 function menu(){
     echo "###       node tool v1.3       ###"
