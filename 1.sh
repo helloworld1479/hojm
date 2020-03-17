@@ -42,25 +42,4 @@ function v2ray(){
     echo -e "\033[42;37m 安装完成 \033[0m"
 }
 
-function menu(){
-    echo "###       node tool v1.3       ###"
-    echo "###  By Twitter@Linux_Terminal ###"
-    echo "###    Update: 2020-03-17      ###"
-    echo ""
 
-    echo "---------------------------------------------------------------------------"
-
-    echo -e "\033[42;37m [1] \033[0m 安装v2ray后端"
-    echo -e "\033[41;33m 请输入选项以继续，ctrl+C退出 \033[0m"
-
-    opt=0
-    read opt
-    if [ "$opt"x = "1"x ]; then
-        v2ray
-
-    else
-        v2ray
-    fi
-}
-
-menu
