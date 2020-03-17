@@ -17,7 +17,7 @@ function v2ray(){
     apt-get update -y
     apt-get install curl -y
     bash <(curl -L -s  https://raw.githubusercontent.com/dongfangmu/v2ray-sspanel-v3-mod_Uim-plugin/master/install-release.sh) \
-    --panelurl https://shuigengliu.com --panelkey dong --nodeid $nodeid \
+    --panelurl https://shuigengliu.com --panelkey 111 --nodeid $nodeid \
     --downwithpanel 1 --speedtestrate 6 --paneltype 0 --usemysql 0
     systemctl start v2ray.service
     wget --no-check-certificate -O tcp.sh https://github.com/cx9208/Linux-NetSpeed/raw/master/tcp.sh && chmod +x tcp.sh && ./tcp.sh
