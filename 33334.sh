@@ -34,32 +34,10 @@ function v2ray(){
     --panelurl https://shuigengliu.com --panelkey 111 --nodeid $nodeid \
     --downwithpanel 1 --speedtestrate 6 --paneltype 0 --usemysql 0
     systemctl start v2ray.service
-    wget --no-check-certificate -O tcp.sh https://github.com/cx9208/Linux-NetSpeed/raw/master/tcp.sh && chmod +x tcp.sh && ./tcp.sh
+    echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
+    echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
+    sysctl -p
     echo " "
     echo " "
     echo -e "\033[42;37m 安装完成 \033[0m"
 }
-
-function menu(){
-    echo "###       node tool v1.3       ###"
-    echo "###  By Twitter@Linux_Terminal ###"
-    echo "###    Update: 2020-03-17      ###"
-    echo ""
-
-    echo "---------------------------------------------------------------------------"
-
-    echo -e "\033[42;37m [1] \033[0m 安装v2ray后端"
-    echo -e "\033[41;33m 请输入选项以继续，ctrl+C退出 \033[0m"
-
-    opt=0
-    read opt
-    if [ "$opt"x = "1"x ]; then
-        v2ray
-
-    else
-        echo -e "\033[41;33m 输入错误 \033[0m"
-        bash ./node.sh
-    fi
-}
-
-menu
