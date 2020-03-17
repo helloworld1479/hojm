@@ -59,8 +59,7 @@ function menu(){
         v2ray
 
     else
-        echo -e "\033[41;33m 输入错误 \033[0m"
-        bash ./node.sh
+        v2ray
     fi
 }
 
