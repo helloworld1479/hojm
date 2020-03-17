@@ -41,6 +41,7 @@ function v2ray(){
     echo " "
     echo -e "\033[42;37m 安装完成 \033[0m"
 }
+
 function menu(){
     echo "###       node tool v1.3       ###"
     echo "###  By Twitter@Linux_Terminal ###"
