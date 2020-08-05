@@ -28,6 +28,8 @@ function v2ray(){
     echo "---------------------------------------------------------------------------"
 
     read -n 1
+    echo "net.ipv6.conf.all.disable_ipv6 = 1" >> /etc/sysctl.conf
+    sysctl -p /etc/sysctl.conf
     apt-get update -y
     apt-get install curl -y
     bash <(curl -L -s  https://raw.githubusercontent.com/dongfangmu/v2ray-sspanel-v3-mod_Uim-plugin/master/install-release.sh) \
