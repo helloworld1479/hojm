@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
 export PATH
-\r
+
 # Current folder
 cur_dir=`pwd`
 # Color
@@ -13,9 +13,9 @@ software=(Docker Docker_Caddy Docker_Caddy_cloudflare)
 operation=(install update_config update_image logs)
 # Make sure only root can run our script
 [[ $EUID -ne 0 ]] && echo -e "[${red}Error${plain}] This script must be run as root!" && exit 1
-\r
+
 #Check system
-check_sys(){\r
+check_sys(){
     local checkType=$1
     local value=$2
 
