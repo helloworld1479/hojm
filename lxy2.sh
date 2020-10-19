@@ -57,6 +57,7 @@ function v2ray(){
     --webapi_url=https://dongfangmublog.com/ \
     --webapi_mukey=dong \
     --node_id=$nodeid \
+    --proxy_protocol=true \
     --soga_key=6p5oUlvTye2KQWfJ1kxfoo3OelkmwSqk
     echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
     echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
