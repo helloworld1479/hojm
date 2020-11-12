@@ -50,7 +50,7 @@ function v2ray(){
     wget https://github.com/dongfangmu/soga/releases/download/2.0.4/soga-linux64.tar.gz
     tar -xzf soga-linux64.tar.gz
     cd 
-    docker run --restart=on-failure --name soga -d -v /etc/soga/:/etc/soga/ --network host sprov065/soga \
+    docker run --restart=on-failure --name soga -d -v /etc/soga/:/etc/soga/ --network host dongfangmu/dongfangmu \
     --type=sspanel-uim \
     --server_type=v2ray \
     --api=webapi \
