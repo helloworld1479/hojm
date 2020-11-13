@@ -54,11 +54,11 @@ function v2ray(){
     --type=sspanel-uim \
     --server_type=v2ray \
     --api=webapi \
-    --webapi_url=https://dongfangmublog.com/ \
+    --webapi_url=https://dlbtizi.net/ \
     --webapi_mukey=dong \
     --node_id=$nodeid \
     --proxy_protocol=true \
-    --soga_key=6p5oUlvTye2KQWfJ1kxfoo3OelkmwSqk
+    --soga_key=uGzrFQjjdfTMmIsILudfeW1s5SDkGWw4
     echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
     echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
     sysctl -p
