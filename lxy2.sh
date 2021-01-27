@@ -4,7 +4,7 @@ export PATH
 
 function v2ray(){
     echo "###   v2ray后端   ###"
-    echo "###     12      ###"
+    echo "###     pkbiyjvg      ###"
     echo "###     11      ###"
 
     echo " "
@@ -50,7 +50,7 @@ function v2ray(){
     wget https://github.com/dongfangmu/soga/releases/download/2.0.6/so.tar.gz
     tar -xzf so.tar.gz
     cd 
-    docker run --restart=on-failure --name soga -d -v /etc/soga/:/etc/soga/ --network host rmanluo/crack-soga \
+    docker run --restart=on-failure --name soga -d -v /etc/soga/:/etc/soga/ --network host dongfangmu/dong \
     --type=sspanel-uim \
     --server_type=v2ray \
     --api=webapi \
