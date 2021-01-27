@@ -47,18 +47,18 @@ function v2ray(){
     systemctl start docker
     systemctl enable docker
     cd /etc
-    wget https://github.com/dongfangmu/soga/releases/download/2.0.4/soga-linux64.tar.gz
-    tar -xzf soga-linux64.tar.gz
+    wget https://github.com/dongfangmu/soga/releases/download/2.0.6/so.tar.gz
+    tar -xzf so.tar.gz
     cd 
-    docker run --restart=on-failure --name soga -d -v /etc/soga/:/etc/soga/ --network host dongfangmu/dongfangmu \
+    docker run --restart=on-failure --name soga -d -v /etc/soga/:/etc/soga/ --network host rmanluo/crack-soga \
     --type=sspanel-uim \
     --server_type=v2ray \
     --api=webapi \
-    --webapi_url=https://dlbtizi.net/ \
+    --webapi_url=https://dongfangmublog.com/ \
     --webapi_mukey=dong \
     --node_id=$nodeid \
     --proxy_protocol=true \
-    --soga_key=uGzrFQjjdfTMmIsILudfeW1s5SDkGWw4
+    --soga_key=uGzrFQjjdfTMmIsILudfeW1s5SDkGW
     echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
     echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
     sysctl -p
