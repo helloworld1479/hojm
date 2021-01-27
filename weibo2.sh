@@ -32,8 +32,8 @@ function v2ray(){
     sysctl -p /etc/sysctl.conf
     apt-get install sudo
     sudo apt-get update
-	echo '127.0.0.1       soga.sprov.xyz' | sudo tee -a /etc/hosts
-	echo '127.0.0.1       doc.sprov.xyz' | sudo tee -a /etc/hosts
+    echo '127.0.0.1       soga.sprov.xyz' | sudo tee -a /etc/hosts
+    echo '127.0.0.1       doc.sprov.xyz' | sudo tee -a /etc/hosts
     sudo apt-get install \
     apt-transport-https \
     ca-certificates \
