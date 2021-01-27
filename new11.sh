@@ -27,8 +27,6 @@ function v2ray(){
 
     read -n 1
     echo "net.ipv6.conf.all.disable_ipv6 = 1" >> /etc/sysctl.conf
-	echo '127.0.0.1       soga.sprov.xyz' | sudo tee -a /etc/hosts
-    echo '127.0.0.1       doc.sprov.xyz' | sudo tee -a /etc/hosts
     sysctl -p /etc/sysctl.conf
     apt-get install sudo
     sudo apt-get update
