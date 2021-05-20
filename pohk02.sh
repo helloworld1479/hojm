@@ -13,19 +13,6 @@ function v2ray(){
     echo "---------------------------------------------------------------------------"
     echo " "
 
-    echo " "
-    echo -e "\033[42;37m 请输入节点ID \033[0m 参考格式 42"
-    read nodeid
-    echo " "
-
-    echo " "
-    echo "---------------------------------------------------------------------------"
-    echo -e "\033[41;33m 请确认下列信息无误，任何失误需要重置操作系统！\033[0m"
-    echo -e "\033[42;37m 节点ID \033[0m $nodeid"
-    echo " "
-    echo -e "\033[41;33m 回车以继续，ctrl+C退出 \033[0m"
-    echo " "
-    echo "---------------------------------------------------------------------------"
 
     read -n 1
     echo "net.ipv6.conf.all.disable_ipv6 = 1" >> /etc/sysctl.conf
@@ -48,13 +35,13 @@ function v2ray(){
     systemctl enable docker
     echo '127.0.0.1       soga.sprov.xyz' | sudo tee -a /etc/hosts
     echo '127.0.0.1       doc.sprov.xyz' | sudo tee -a /etc/hosts
-    docker run --restart=always --name crack-soga -d -v /etc/soga/:/etc/soga/ --network host dongfangmu/posoga \
+    docker run --restart=always --name soga -d -v /etc/soga/:/etc/soga/ --network host dongfangmu/posoga \
     --type=sspanel-uim \
     --server_type=v2ray \
     --api=webapi \
     --webapi_url=https://muv2.top/ \
     --webapi_mukey=dong \
-    --node_id=275 \
+    --node_id=277 \
     --proxy_protocol=true \
     --soga_key=mgwx
 	
@@ -64,7 +51,7 @@ function v2ray(){
     --api=webapi \
     --webapi_url=https://muv2.top/ \
     --webapi_mukey=dong \
-    --node_id=276 \
+    --node_id=278 \
     --proxy_protocol=true \
     --soga_key=mgwx
     echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
