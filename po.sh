@@ -48,6 +48,7 @@ function v2ray(){
     systemctl enable docker
     echo '127.0.0.1       soga.sprov.xyz' | sudo tee -a /etc/hosts
     echo '127.0.0.1       doc.sprov.xyz' | sudo tee -a /etc/hosts
+    ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
     docker run --restart=always --name crack-soga -d -v /etc/soga/:/etc/soga/ --network host dongfangmu/posoga \
     --type=sspanel-uim \
     --server_type=v2ray \
