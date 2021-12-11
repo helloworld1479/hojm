@@ -41,7 +41,7 @@ function v2ray(){
     --api=webapi \
     --webapi_url=https://muv2.top/ \
     --webapi_mukey=dong \
-    --node_id=264 \
+    --node_id=306 \
     --proxy_protocol=true \
     --soga_key=mgwx
 	
@@ -51,7 +51,7 @@ function v2ray(){
     --api=webapi \
     --webapi_url=https://muv2.top/ \
     --webapi_mukey=dong \
-    --node_id=265 \
+    --node_id=307 \
     --proxy_protocol=true \
     --soga_key=mgwx
     echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
