@@ -46,6 +46,7 @@ function v2ray(){
     --webapi_mukey=dong \
     --node_id=320 \
     --proxy_protocol=true \
+    --force_vmess_aead=true \
     --cert_domain=usc2.iosqq.top \
     --cert_mode=dns \
     --cert_key_length=ec-256 \
