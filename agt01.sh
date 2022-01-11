@@ -1,7 +1,6 @@
 #!/bin/bash
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/bin:/sbin
 export PATH
-
 function v2ray(){
     echo "###   v2ray后端   ###"
     echo "###     11      ###"
