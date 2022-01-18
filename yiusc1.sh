@@ -47,12 +47,6 @@ function v2ray(){
     --node_id=320 \
     --proxy_protocol=true \
     --force_vmess_aead=true \
-    --cert_domain=usc2.iosqq.top \
-    --cert_mode=dns \
-    --cert_key_length=ec-256 \
-    --dns_provider=dns_cf \
-    --DNS_CF_Email=dongfangmu3664@gmail.com \
-    --DNS_CF_Key=285b03d4282785fdc564a8a45c873c118a88b
 
     echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
     echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
