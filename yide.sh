@@ -44,7 +44,7 @@ function v2ray(){
     --webapi_url=https://dlbtizi.net/ \
     --soga_key=uGzrFQjjdfTMmIsILudfeW1s5SDkGWw4 \
     --webapi_mukey=dong \
-    --node_id=333 \
+    --node_id=335 \
     --proxy_protocol=true \
     --force_vmess_aead=true \
 
@@ -59,7 +59,7 @@ function v2ray(){
     --webapi_url=https://dlbtizi.net/ \
     --soga_key=uGzrFQjjdfTMmIsILudfeW1s5SDkGWw4 \
     --webapi_mukey=dong \
-    --node_id=334 \
+    --node_id=336 \
     --proxy_protocol=true \
     --force_vmess_aead=true \
 
