@@ -42,19 +42,10 @@ function v2ray(){
     --api=webapi \
     --webapi_url=https://muv2.top/ \
     --webapi_mukey=dong \
-    --node_id=277 \
+    --node_id=377 \
     --proxy_protocol=true \
     --soga_key=mgwx
 	
-	docker run --restart=always --name soga2 -d -v /etc/soga/:/etc/soga/ --network host dongfangmu/posoga \
-    --type=sspanel-uim \
-    --server_type=v2ray \
-    --api=webapi \
-    --webapi_url=https://muv2.top/ \
-    --webapi_mukey=dong \
-    --node_id=278 \
-    --proxy_protocol=true \
-    --soga_key=mgwx
     echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
     echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
     sysctl -p
