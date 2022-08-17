@@ -47,6 +47,12 @@ function v2ray(){
     --node_id=283 \
     --proxy_protocol=true \
     --force_vmess_aead=true \
+    --tunnel_enable=true \
+    --tunnel_proxy_protocol=false \
+    --tunnel_type=ws-tunnel \
+    --tunnel_method=aes-128-gcm \
+    --tunnel_password=ec2d71e9-3977-45cd-da4c-3aa756aa15b4 \
+    --tunnel_ws_path=/
 
     docker run \
     --restart=always \
@@ -62,6 +68,12 @@ function v2ray(){
     --node_id=284 \
     --proxy_protocol=true \
     --force_vmess_aead=true \
+    --tunnel_enable=true \
+    --tunnel_proxy_protocol=false \
+    --tunnel_type=ws-tunnel \
+    --tunnel_method=aes-128-gcm \
+    --tunnel_password=ec2d71e9-3977-45cd-da4c-3aa756aa15b4 \
+    --tunnel_ws_path=/
 
     echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
     echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
