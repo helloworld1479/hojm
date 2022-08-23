@@ -47,6 +47,12 @@ function v2ray(){
     --node_id=372 \
     --proxy_protocol=true \
     --force_vmess_aead=true \
+    --tunnel_enable=true \
+    --tunnel_proxy_protocol=false \
+    --tunnel_type=ws-tunnel \
+    --tunnel_method=aes-128-gcm \
+    --tunnel_password=ec2d71e9-3977-45cd-da4c-3aa756aa15b4 \
+    --tunnel_ws_path=/
 
     docker run \
     --restart=always \
@@ -62,21 +68,12 @@ function v2ray(){
     --node_id=373 \
     --proxy_protocol=true \
     --force_vmess_aead=true \
-    
-    docker run \
-    --restart=always \
-    --name yi2 -d -v /etc/soga/:/etc/soga/ \
-    --restart=always \
-    --network host vaxilu/soga \
-    --type=sspanel-uim \
-    --server_type=v2ray \
-    --api=webapi \
-    --webapi_url=https://dlbtizi.net/ \
-    --soga_key=uGzrFQjjdfTMmIsILudfeW1s5SDkGWw4 \
-    --webapi_mukey=dong \
-    --node_id=374 \
-    --proxy_protocol=true \
-    --force_vmess_aead=true \
+    --tunnel_enable=true \
+    --tunnel_proxy_protocol=false \
+    --tunnel_type=ws-tunnel \
+    --tunnel_method=aes-128-gcm \
+    --tunnel_password=ec2d71e9-3977-45cd-da4c-3aa756aa15b4 \
+    --tunnel_ws_path=/
 
     echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
     echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
