@@ -34,3 +34,33 @@ function v2ray(){
     systemctl start docker
     systemctl enable docker
     
+    echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
+    echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
+    sysctl -p
+    echo " "
+    echo " "
+    echo -e "\033[42;37m 安装完成 \033[0m"
+}
+
+function menu(){
+    echo "###         东方木自用          ###"
+    echo "###            usc1专用         ###"
+    echo "###    Update: 2021-05-14      ###"
+    echo ""
+
+    echo "---------------------------------------------------------------------------"
+
+    echo -e "\033[42;37m [1] \033[0m 安装v2ray后端"
+    echo -e "\033[41;33m 请输入选项以继续，ctrl+C退出 \033[0m"
+
+    opt=0
+    read opt
+    if [ "$opt"x = "1"x ]; then
+        v2ray
+
+    else
+        v2ray
+    fi
+}
+
+menu
