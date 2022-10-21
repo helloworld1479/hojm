@@ -48,8 +48,8 @@ function v2ray(){
     --proxy_protocol=true \
     --force_vmess_aead=true \
     --tunnel_enable=true \
-    --tunnel_proxy_protocol=false \
-    --tunnel_type=ws-tunnel \
+    --tunnel_proxy_protocol=true \
+    --tunnel_type=tcp-tunnel \
     --tunnel_method=aes-128-gcm \
     --tunnel_password=ec2d71e9-3977-45cd-da4c-3aa756aa15b4 \
     --tunnel_ws_path=/
@@ -69,11 +69,10 @@ function v2ray(){
     --proxy_protocol=true \
     --force_vmess_aead=true \
     --tunnel_enable=true \
-    --tunnel_proxy_protocol=false \
-    --tunnel_type=ws-tunnel \
+    --tunnel_proxy_protocol=true \
+    --tunnel_type=tcp-tunnel \
     --tunnel_method=aes-128-gcm \
     --tunnel_password=ec2d71e9-3977-45cd-da4c-3aa756aa15b4 \
-    --tunnel_ws_path=/
 
     echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
     echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
