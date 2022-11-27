@@ -4,18 +4,17 @@ export PATH
 
 function v2ray(){
     echo "###   v2ray后端   ###"
-    echo "###     11      ###"
-    echo "###     11      ###"
+    echo "###     专用      ###"
+    echo "###   2022-11-27 ###"
 
     echo " "
-    echo -e "\033[41;33m 本功能仅支持Debian 9，请勿在其他系统中运行 \033[0m"
+    echo -e "\033[41;33m 本功能仅支持Ubuntu，请勿在其他系统中运行 \033[0m"
     echo " "
     echo "---------------------------------------------------------------------------"
     echo " "
 
 
     read -n 1
-    echo "net.ipv6.conf.all.disable_ipv6 = 1" >> /etc/sysctl.conf
     sysctl -p /etc/sysctl.conf
     apt-get install sudo
     sudo apt-get update
@@ -35,7 +34,7 @@ function v2ray(){
     systemctl enable docker
     docker run \
     --restart=always \
-    --name yi -d -v /etc/soga/:/etc/soga/ \
+    --name yitb -d -v /etc/soga/:/etc/soga/ \
     --restart=always \
     --network host vaxilu/soga \
     --type=sspanel-uim \
@@ -47,10 +46,12 @@ function v2ray(){
     --node_id=365 \
     --proxy_protocol=true \
     --force_vmess_aead=true \
+    --tunnel_enable=false \
+    --tunnel_proxy_protocol=true \
 
     docker run \
     --restart=always \
-    --name yi1 -d -v /etc/soga/:/etc/soga/ \
+    --name yitba -d -v /etc/soga/:/etc/soga/ \
     --restart=always \
     --network host vaxilu/soga \
     --type=sspanel-uim \
@@ -62,6 +63,8 @@ function v2ray(){
     --node_id=364 \
     --proxy_protocol=true \
     --force_vmess_aead=true \
+    --tunnel_enable=false \
+    --tunnel_proxy_protocol=true \
 
     echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
     echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
