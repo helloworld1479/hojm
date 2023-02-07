@@ -37,7 +37,7 @@ CFUSER=6733268@gmail.com
 CFZONE_NAME=iosqq.top
 
 # Hostname to update, eg: homeserver.example.com
-CFRECORD_NAME=aztb2
+CFRECORD_NAME=tez2
 
 # Record type, A(IPv4)|AAAA(IPv6), default IPv4
 CFRECORD_TYPE=A
