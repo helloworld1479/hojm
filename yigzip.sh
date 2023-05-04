@@ -55,12 +55,13 @@ for i in "${!CFZONE_NAMES[@]}"; do
     else
         echo "Updating zone_identifier & record_identifier"
         CFZONE_ID=$(curl -s -X GET "https://api.cloudflare.com/client/v4/zones?name=$CFZONE_NAME" -H "X-Auth-Email: $CFUSER" -H "X-Auth-Key: $CFKEY" -H "Content-Type: application/json" | grep -Po '(?<="id":")[^"]*' | head -1 )
-        CFRECORD_ID=$(curl -s -X GET "https://api.cloudflare.com/client/v4/zones/$CFZONE_ID/dns_records?name=$CFRECORD_NAME" -H "X-Auth-Email: $CFUSER" -H "X-Auth-Key: $CFKEY" -H"H-Content-Type: application/json" | grep -Po '(?<="id":")[^"]*' | head -1 )
+        CFRECORD_ID=$(curl -s -X GET "https://api.cloudflare.com/client/v4/zones/$CFZONE_ID/dns_records?name=$CFRECORD_NAME" -H "X-Auth-Email: $CFUSER" -H "X-Auth-Key: $CFKEY" -H "Content-Type: application/json"  | grep -Po '(?<="id":")[^"]*' | head -1 )
         echo "$CFZONE_ID" > $ID_FILE
         echo "$CFRECORD_ID" >> $ID_FILE
         echo "$CFZONE_NAME" >> $ID_FILE
         echo "$CFRECORD_NAME" >> $ID_FILE
     fi
+
     echo "Updating DNS to $WAN_IP"
     UPDATE=$(curl -s -X PUT "https://api.cloudflare.com/client/v4/zones/$CFZONE_ID/dns_records/$CFRECORD_ID" \
     -H "X-Auth-Email: $CFUSER" \
@@ -70,9 +71,11 @@ for i in "${!CFZONE_NAMES[@]}"; do
     | grep -Po '(?<="success":)[^,]*')
 
     if [ $UPDATE = "true" ]; then
-    echo "Updated succesfuly!"
-    echo $WAN_IP > $WAN_IP_FILE
+      echo "Updated succesfuly!"
+      echo $WAN_IP > $WAN_IP_FILE
     else
-    echo 'Something went wrong, check API calls!'
-    exit 1
+      echo 'Something went wrong, check API calls!'
+      exit 1
     fi
+done
+
