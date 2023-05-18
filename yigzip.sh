@@ -10,7 +10,7 @@ CFZONE_NAMES=("dfnode.top" "dfnode.top" "dfnode.top" "dfnode.top" "dfnode.top" "
 CFRECORD_NAMES=("e13" "hkcm" "jpcm" "ot" "sgpcm9" "twd" "uscm" "vip")
 
 CFRECORD_TYPE=A
-CFTTL=120
+CFTTL=1
 FORCE=false
 WANIPSITE="http://ipv4.icanhazip.com"
 
