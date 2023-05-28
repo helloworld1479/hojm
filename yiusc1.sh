@@ -35,18 +35,73 @@ function v2ray(){
     systemctl enable docker
     docker run \
     --restart=always \
-    --name yi -d -v /etc/soga/:/etc/soga/ \
+    --name yitb -d -v /etc/soga/:/etc/soga/ \
     --restart=always \
-    --network host vaxilu/soga \
+    --network host vaxilu/soga:2.8.9 \
     --type=sspanel-uim \
     --server_type=v2ray \
     --api=webapi \
     --webapi_url=https://dlbtizi.net/ \
     --soga_key=uGzrFQjjdfTMmIsILudfeW1s5SDkGWw4 \
-    --webapi_mukey=dong \
-    --node_id=320 \
+    --webapi_key=dong \
+    --node_id=324 \
     --proxy_protocol=true \
     --force_vmess_aead=true \
+    --tunnel_enable=false \
+    --tunnel_proxy_protocol=true \
+    
+    
+    docker run \
+    --restart=always \
+    --name yitba -d -v /etc/soga/:/etc/soga/ \
+    --restart=always \
+    --network host vaxilu/soga:2.8.9 \
+    --type=sspanel-uim \
+    --server_type=v2ray \
+    --api=webapi \
+    --webapi_url=https://dlbtizi.net/ \
+    --soga_key=uGzrFQjjdfTMmIsILudfeW1s5SDkGWw4 \
+    --webapi_key=dong \
+    --node_id=325 \
+    --proxy_protocol=true \
+    --force_vmess_aead=true \
+    --tunnel_enable=false \
+    --tunnel_proxy_protocol=true \
+    
+    docker run \
+    --restart=always \
+    --name yitb1 -d -v /etc/soga/:/etc/soga/ \
+    --restart=always \
+    --network host vaxilu/soga:2.8.9 \
+    --type=sspanel-uim \
+    --server_type=v2ray \
+    --api=webapi \
+    --webapi_url=https://dlbtizi.net/ \
+    --soga_key=uGzrFQjjdfTMmIsILudfeW1s5SDkGWw4 \
+    --webapi_key=dong \
+    --node_id=266 \
+    --proxy_protocol=true \
+    --force_vmess_aead=true \
+    --tunnel_enable=false \
+    --tunnel_proxy_protocol=true \
+    
+    
+    docker run \
+    --restart=always \
+    --name yitb -d -v /etc/soga/:/etc/soga/ \
+    --restart=always \
+    --network host vaxilu/soga:2.8.9 \
+    --type=sspanel-uim \
+    --server_type=v2ray \
+    --api=webapi \
+    --webapi_url=https://dlbtizi.net/ \
+    --soga_key=uGzrFQjjdfTMmIsILudfeW1s5SDkGWw4 \
+    --webapi_key=dong \
+    --node_id=267 \
+    --proxy_protocol=true \
+    --force_vmess_aead=true \
+    --tunnel_enable=false \
+    --tunnel_proxy_protocol=true \
 
     echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
     echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
