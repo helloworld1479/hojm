@@ -6,8 +6,8 @@ set -o pipefail
 CFKEY="754562d8862d840a8eb6009745b79fc352610"
 CFUSER="6733268@gmail.com"
 
-CFZONE_NAMES=("dfnode.top" "dfnode.top" "dfnode.top" "dfnode.top" "dfnode.top" "dfnode.top" "dfnode.top" "lsp.best")
-CFRECORD_NAMES=("e13" "hkcm" "jpcm" "ot" "sgpcm9" "twd" "uscm" "vip")
+CFZONE_NAMES=("dfnode.top" "dfnode.top" "dfnode.top" "dfnode.top" "dfnode.top" "dfnode.top" "dfnode.top" "dfnode.top" "dfnode.top" "lsp.best" "dongfanghl.com")
+CFRECORD_NAMES=("ham" "jjm" "e13" "hkcm" "jpcm" "ot" "sgpcm9" "twd" "uscm" "vip" "download1")
 
 CFRECORD_TYPE=A
 CFTTL=1
