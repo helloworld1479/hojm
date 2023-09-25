@@ -37,14 +37,14 @@ function v2ray(){
     --restart=always \
     --name yitb -d -v /etc/soga/:/etc/soga/ \
     --restart=always \
-    --network host vaxilu/soga \
+    --network host vaxilu/soga:2.8.9 \
     --type=sspanel-uim \
     --server_type=v2ray \
     --api=webapi \
     --webapi_url=https://dlbtizi.net/ \
     --soga_key=uGzrFQjjdfTMmIsILudfeW1s5SDkGWw4 \
     --webapi_key=dong \
-    --node_id=383 \
+    --node_id=384 \
     --proxy_protocol=true \
     --force_vmess_aead=true \
     --tunnel_enable=false \
@@ -55,14 +55,14 @@ function v2ray(){
     --restart=always \
     --name yitba -d -v /etc/soga/:/etc/soga/ \
     --restart=always \
-    --network host vaxilu/soga \
+    --network host vaxilu/soga:2.8.9 \
     --type=sspanel-uim \
     --server_type=v2ray \
     --api=webapi \
     --webapi_url=https://dlbtizi.net/ \
     --soga_key=uGzrFQjjdfTMmIsILudfeW1s5SDkGWw4 \
     --webapi_key=dong \
-    --node_id=384 \
+    --node_id=383 \
     --proxy_protocol=true \
     --force_vmess_aead=true \
     --tunnel_enable=false \
