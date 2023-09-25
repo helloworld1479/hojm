@@ -35,9 +35,9 @@ function v2ray(){
     systemctl enable docker
     docker run \
     --restart=always \
-    --name yitb -d -v /etc/soga/:/etc/soga:2.8.9 \
+    --name yitb -d -v /etc/soga/:/etc/soga/ \
     --restart=always \
-    --network host vaxilu/soga \
+    --network host vaxilu/soga:2.8.9 \
     --type=sspanel-uim \
     --server_type=v2ray \
     --api=webapi \
@@ -53,9 +53,9 @@ function v2ray(){
     
     docker run \
     --restart=always \
-    --name yitba -d -v /etc/soga/:/etc/soga:2.8.9 \
+    --name yitb -d -v /etc/soga/:/etc/soga/ \
     --restart=always \
-    --network host vaxilu/soga \
+    --network host vaxilu/soga:2.8.9 \
     --type=sspanel-uim \
     --server_type=v2ray \
     --api=webapi \
