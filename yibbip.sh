@@ -2,12 +2,13 @@
 set -o errexit
 set -o nounset
 set -o pipefail
+SPECIFIC_IP="120.241.46.77"  # 将这里的IP地址替换为您想要的特定IP
 
 CFKEY="754562d8862d840a8eb6009745b79fc352610"
 CFUSER="6733268@gmail.com"
 
-CFZONE_NAMES=("dfnode.top" "dfnode.top" "dfnode.top" "dfnode.top" "dfnode.top" "dfnode.top")
-CFRECORD_NAMES=("cs" "hkcu" "jpcu" "otcu" "sgpcu9" "u92")
+CFZONE_NAMES=("dfnode.top" "dfnode.top" "dfnode.top" "dfnode.top" "dfnode.top" "dfnode.top" "dfnode.top" "dongfanghl.com")
+CFRECORD_NAMES=("cs" "hkcu" "jpcu" "otcu" "sgpcu9" "e13" "u92" "download2")
 
 CFRECORD_TYPE=A
 CFTTL=1
@@ -32,7 +33,7 @@ for i in "${!CFZONE_NAMES[@]}"; do
         echo " => Hostname is not a FQDN, assuming $CFRECORD_NAME"
     fi
 
-    WAN_IP=`curl -s ${WANIPSITE}`
+    WAN_IP=$SPECIFIC_IP
     WAN_IP_FILE=$HOME/.cf-wan_ip_$CFRECORD_NAME.txt
     if [ -f $WAN_IP_FILE ]; then
       OLD_WAN_IP=`cat $WAN_IP_FILE`
