@@ -2,7 +2,7 @@
 set -o errexit
 set -o nounset
 set -o pipefail
-SPECIFIC_IP="218.204.179.81"  # 将这里的IP地址替换为您想要的特定IP
+SPECIFIC_IP="218.204.179.82"  # 将这里的IP地址替换为您想要的特定IP
 
 CFKEY="754562d8862d840a8eb6009745b79fc352610"
 CFUSER="6733268@gmail.com"
