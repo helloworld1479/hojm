@@ -7,8 +7,8 @@ SPECIFIC_IP="120.233.42.176"  # 将这里的IP地址替换为您想要的特定I
 CFKEY="754562d8862d840a8eb6009745b79fc352610"
 CFUSER="6733268@gmail.com"
 
-CFZONE_NAMES=("dfnode.top" "dfnode.top" "dfnode.top" "dfnode.top" "dfnode.top" "dfnode.top" "dfnode.top" "dongfanghl.com")
-CFRECORD_NAMES=("cs" "hkcu" "jpcu" "otcu" "sgpcu9" "e13" "u92" "download2")
+CFZONE_NAMES=("dfnode.top" "dfnode.top" "dfnode.top" "dfnode.top" "dfnode.top" "dfnode.top" "dfnode.top" "dongfanghl.com" "potatoeswater.com")
+CFRECORD_NAMES=("cs" "hkcu" "jpcu" "otcu" "sgpcu9" "e13" "u92" "download2" "top")
 
 CFRECORD_TYPE=A
 CFTTL=1
