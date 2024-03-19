@@ -81,7 +81,7 @@ function v2ray(){
     -e proxy_protocol=true \
     -e force_vmess_aead=true \
     -e tunnel_proxy_protocol=true \
-    vaxilu/soga
+    vaxilu/soga:2.9.5
 
     echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
     echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
