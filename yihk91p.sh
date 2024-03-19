@@ -33,11 +33,8 @@ CFKEY=754562d8862d840a8eb6009745b79fc352610
 # Username, eg: user@example.com
 CFUSER=6733268@gmail.com
 
-# Zone name, eg: example.com
-CFZONE_NAME=d-f4.com
-
-# Hostname to update, eg: homeserver.example.com
-CFRECORD_NAME=hkbgp
+CFZONE_NAMES=("d-f4.com" "888888881.xyz")
+CFRECORD_NAMES=("hkbgp" "hkie")
 
 # Record type, A(IPv4)|AAAA(IPv6), default IPv4
 CFRECORD_TYPE=A
