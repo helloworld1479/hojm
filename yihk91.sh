@@ -80,6 +80,10 @@ function v2ray(){
     -e proxy_protocol=true \
     -e force_vmess_aead=true \
     -e tunnel_proxy_protocol=true \
+    -e tunnel_enable=true \
+    -e tunnel_type=tcp-tunnel \
+    -e tunnel_method=aes-128-gcm \
+    -e tunnel_password=ec2d71e9-3977-45cd-da4c-3aa756aa15b4 \
     vaxilu/soga
 
 
