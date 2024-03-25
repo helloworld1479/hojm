@@ -33,34 +33,40 @@ function v2ray(){
     sudo apt-get install docker-ce docker-ce-cli containerd.io -y
     systemctl start docker
     systemctl enable docker
-    docker run --restart=on-failure --name yitb -d \
-    -v /etc/soga/:/etc/soga/ --network host \
-    -e type=sspanel-uim \
-    -e server_type=v2ray \
-    -e node_id=339 \
-    -e soga_key=uGzrFQjjdfTMmIsILudfeW1s5SDkGWw4 \
-    -e api=webapi \
-    -e webapi_url=https://dlbtizi.net/ \
-    -e webapi_key=dong \
-    -e proxy_protocol=true \
-    -e force_vmess_aead=true \
-    -e tunnel_proxy_protocol=true \
-    vaxilu/soga
+    docker run \
+    --restart=always \
+    --name yitb -d -v /etc/soga/:/etc/soga/ \
+    --restart=always \
+    --network host vaxilu/soga:2.8.9 \
+    --type=sspanel-uim \
+    --server_type=v2ray \
+    --api=webapi \
+    --webapi_url=https://dlbtizi.net/ \
+    --soga_key=uGzrFQjjdfTMmIsILudfeW1s5SDkGWw4 \
+    --webapi_key=dong \
+    --node_id=339 \
+    --proxy_protocol=true \
+    --force_vmess_aead=true \
+    --tunnel_enable=false \
+    --tunnel_proxy_protocol=true \
     
     
-    docker run --restart=on-failure --name yitba -d \
-    -v /etc/soga/:/etc/soga/ --network host \
-    -e type=sspanel-uim \
-    -e server_type=v2ray \
-    -e node_id=340 \
-    -e soga_key=uGzrFQjjdfTMmIsILudfeW1s5SDkGWw4 \
-    -e api=webapi \
-    -e webapi_url=https://dlbtizi.net/ \
-    -e webapi_key=dong \
-    -e proxy_protocol=true \
-    -e force_vmess_aead=true \
-    -e tunnel_proxy_protocol=true \
-    vaxilu/soga
+    docker run \
+    --restart=always \
+    --name yitba -d -v /etc/soga/:/etc/soga/ \
+    --restart=always \
+    --network host vaxilu/soga:2.8.9 \
+    --type=sspanel-uim \
+    --server_type=v2ray \
+    --api=webapi \
+    --webapi_url=https://dlbtizi.net/ \
+    --soga_key=uGzrFQjjdfTMmIsILudfeW1s5SDkGWw4 \
+    --webapi_key=dong \
+    --node_id=340 \
+    --proxy_protocol=true \
+    --force_vmess_aead=true \
+    --tunnel_enable=false \
+    --tunnel_proxy_protocol=true \
 
     echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
     echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
