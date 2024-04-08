@@ -33,7 +33,7 @@ function v2ray(){
     sudo apt-get install docker-ce docker-ce-cli containerd.io -y
     systemctl start docker
     systemctl enable docker
-    docker run --restart=on-failure --name yitb -d \
+    docker run --restart=on-failure --name yitb8 -d \
     -v /etc/soga/:/etc/soga/ --network host \
     -e type=sspanel-uim \
     -e server_type=v2ray \
@@ -48,7 +48,7 @@ function v2ray(){
     vaxilu/soga
     
     
-    docker run --restart=on-failure --name yitba -d \
+    docker run --restart=on-failure --name yitb8a -d \
     -v /etc/soga/:/etc/soga/ --network host \
     -e type=sspanel-uim \
     -e server_type=v2ray \
