@@ -8,7 +8,7 @@ function v2ray(){
     echo "###     11      ###"
 
     echo " "
-    echo -e "\033[41;33m 本功能仅支持Ubuntu，请勿在其他系统中运行 \033[0m"
+    echo -e "\033[41;33m 本功能仅支持Debian 9，请勿在其他系统中运行 \033[0m"
     echo " "
     echo "---------------------------------------------------------------------------"
     echo " "
@@ -37,14 +37,14 @@ function v2ray(){
     --restart=always \
     --name yitb -d -v /etc/soga/:/etc/soga/ \
     --restart=always \
-    --network host vaxilu/soga \
+    --network host vaxilu/soga:2.8.9 \
     --type=sspanel-uim \
     --server_type=v2ray \
     --api=webapi \
     --webapi_url=https://dlbtizi.net/ \
     --soga_key=uGzrFQjjdfTMmIsILudfeW1s5SDkGWw4 \
     --webapi_key=dong \
-    --node_id=357 \
+    --node_id=403 \
     --proxy_protocol=true \
     --force_vmess_aead=true \
     --tunnel_enable=false \
@@ -55,18 +55,19 @@ function v2ray(){
     --restart=always \
     --name yitba -d -v /etc/soga/:/etc/soga/ \
     --restart=always \
-    --network host vaxilu/soga \
+    --network host vaxilu/soga:2.8.9 \
     --type=sspanel-uim \
     --server_type=v2ray \
     --api=webapi \
     --webapi_url=https://dlbtizi.net/ \
     --soga_key=uGzrFQjjdfTMmIsILudfeW1s5SDkGWw4 \
     --webapi_key=dong \
-    --node_id=358 \
+    --node_id=404 \
     --proxy_protocol=true \
     --force_vmess_aead=true \
     --tunnel_enable=false \
     --tunnel_proxy_protocol=true \
+
 
     echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
     echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
@@ -77,9 +78,9 @@ function v2ray(){
 }
 
 function menu(){
-    echo "###         内部自用          ###"
-    echo "###         az05专用          ###"
-    echo "###    Update: 2023-01-14      ###"
+    echo "###         东方自用          ###"
+    echo "###            靜態专用         ###"
+    echo "###    Update: 2021-05-14      ###"
     echo ""
 
     echo "---------------------------------------------------------------------------"
