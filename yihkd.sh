@@ -95,7 +95,7 @@ function v2ray(){
     -v /etc/soga/:/etc/soga/ --network host \
     -e type=v2board \
     -e server_type=v2ray \
-    -e node_id=1 \
+    -e node_id=23 \
     -e soga_key=updIcri6AetCowe89dlc70XQsk7C9lxs \
     -e api=webapi \
     -e webapi_url=https://888888881.xyz/ \
@@ -106,7 +106,7 @@ function v2ray(){
     -e redis_enable=true \
     -e redis_addr=ip.dlbtizi.net:1357 \
     -e redis_password=damai \
-    -e redis_db=23 \
+    -e redis_db=1 \
     -e conn_limit_expiry=60 \
     vaxilu/soga:2.10.6
     
