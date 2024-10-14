@@ -45,7 +45,12 @@ function v2ray(){
     -e proxy_protocol=true \
     -e force_vmess_aead=true \
     -e tunnel_proxy_protocol=true \
-    vaxilu/soga
+    -e redis_enable=true \
+    -e redis_addr=ip.dlbtizi.net:1357 \
+    -e redis_password=damai \
+    -e redis_db=0 \
+    -e conn_limit_expiry=60 \
+    vaxilu/soga:2.10.6
     
     docker run --restart=on-failure --name yitba -d \
     -v /etc/soga/:/etc/soga/ --network host \
@@ -59,7 +64,12 @@ function v2ray(){
     -e proxy_protocol=true \
     -e force_vmess_aead=true \
     -e tunnel_proxy_protocol=true \
-    vaxilu/soga
+    -e redis_enable=true \
+    -e redis_addr=ip.dlbtizi.net:1357 \
+    -e redis_password=damai \
+    -e redis_db=0 \
+    -e conn_limit_expiry=60 \
+    vaxilu/soga:2.10.6
 
 
     echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
@@ -71,8 +81,8 @@ function v2ray(){
 }
 
 function menu(){
-    echo "###         东方自用          ###"
-    echo "###            印度专用         ###"
+    echo "###         云上东方2024        ###"
+    echo "###           印度专用          ###"
     echo "###    Update: 2024-10-14      ###"
     echo ""
 
