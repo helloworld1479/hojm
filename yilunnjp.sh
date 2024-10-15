@@ -33,40 +33,62 @@ function v2ray(){
     sudo apt-get install docker-ce docker-ce-cli containerd.io -y
     systemctl start docker
     systemctl enable docker
-    docker run \
-    --restart=always \
-    --name yitb -d -v /etc/soga/:/etc/soga/ \
-    --restart=always \
-    --network host vaxilu/soga:2.8.9 \
-    --type=sspanel-uim \
-    --server_type=v2ray \
-    --api=webapi \
-    --webapi_url=https://dlbtizi.net/ \
-    --soga_key=uGzrFQjjdfTMmIsILudfeW1s5SDkGWw4 \
-    --webapi_key=dong \
-    --node_id=407 \
-    --proxy_protocol=true \
-    --force_vmess_aead=true \
-    --tunnel_enable=false \
-    --tunnel_proxy_protocol=true \
+    docker run --restart=always --name yitb -d \
+    -v /etc/soga/:/etc/soga/ --network host \
+    -e type=sspanel-uim \
+    -e server_type=v2ray \
+    -e node_id=407 \
+    -e soga_key=uGzrFQjjdfTMmIsILudfeW1s5SDkGWw4 \
+    -e api=webapi \
+    -e webapi_url=https://dlbtizi.net/ \
+    -e webapi_key=dong \
+    -e proxy_protocol=true \
+    -e force_vmess_aead=true \
+    -e tunnel_proxy_protocol=true \
+    -e redis_enable=true \
+    -e redis_addr=ip.dlbtizi.net:1357 \
+    -e redis_password=damai \
+    -e redis_db=0 \
+    -e conn_limit_expiry=60 \
+    vaxilu/soga:2.10.6
     
-    
-    docker run \
-    --restart=always \
-    --name yitba -d -v /etc/soga/:/etc/soga/ \
-    --restart=always \
-    --network host vaxilu/soga:2.8.9 \
-    --type=sspanel-uim \
-    --server_type=v2ray \
-    --api=webapi \
-    --webapi_url=https://dlbtizi.net/ \
-    --soga_key=uGzrFQjjdfTMmIsILudfeW1s5SDkGWw4 \
-    --webapi_key=dong \
-    --node_id=408 \
-    --proxy_protocol=true \
-    --force_vmess_aead=true \
-    --tunnel_enable=false \
-    --tunnel_proxy_protocol=true \
+    docker run --restart=always --name yitba -d \
+    -v /etc/soga/:/etc/soga/ --network host \
+    -e type=sspanel-uim \
+    -e server_type=v2ray \
+    -e node_id=408 \
+    -e soga_key=uGzrFQjjdfTMmIsILudfeW1s5SDkGWw4 \
+    -e api=webapi \
+    -e webapi_url=https://dlbtizi.net/ \
+    -e webapi_key=dong \
+    -e proxy_protocol=true \
+    -e force_vmess_aead=true \
+    -e tunnel_proxy_protocol=true \
+    -e redis_enable=true \
+    -e redis_addr=ip.dlbtizi.net:1357 \
+    -e redis_password=damai \
+    -e redis_db=0 \
+    -e conn_limit_expiry=60 \
+    vaxilu/soga:2.10.6
+
+    docker run --restart=on-failure --name d1 -d \
+    -v /etc/soga/:/etc/soga/ --network host \
+    -e type=v2board \
+    -e server_type=v2ray \
+    -e node_id=24 \
+    -e soga_key=updIcri6AetCowe89dlc70XQsk7C9lxs \
+    -e api=webapi \
+    -e webapi_url=https://888888881.xyz/ \
+    -e webapi_key=iRMUl4OeUWRmUH8e \
+    -e proxy_protocol=true \
+    -e force_vmess_aead=true \
+    -e tunnel_proxy_protocol=true \
+    -e redis_enable=true \
+    -e redis_addr=ip.dlbtizi.net:1357 \
+    -e redis_password=damai \
+    -e redis_db=1 \
+    -e conn_limit_expiry=60 \
+    vaxilu/soga:2.10.6
 
 
     echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
