@@ -33,7 +33,7 @@ function v2ray(){
     sudo apt-get install docker-ce docker-ce-cli containerd.io -y
     systemctl start docker
     systemctl enable docker
-   docker run --restart=always --name yitb -d \
+    docker run --restart=always --name yitb -d \
     -v /etc/soga/:/etc/soga/ --network host \
     -e type=sspanel-uim \
     -e server_type=v2ray \
