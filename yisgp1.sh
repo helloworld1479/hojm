@@ -37,25 +37,6 @@ function v2ray(){
     -v /etc/soga/:/etc/soga/ --network host \
     -e type=sspanel-uim \
     -e server_type=v2ray \
-    -e node_id=384 \
-    -e soga_key=uGzrFQjjdfTMmIsILudfeW1s5SDkGWw4 \
-    -e api=webapi \
-    -e webapi_url=https://dlbtizi.net/ \
-    -e webapi_key=dong \
-    -e proxy_protocol=true \
-    -e force_vmess_aead=true \
-    -e tunnel_proxy_protocol=true \
-    -e redis_enable=true \
-    -e redis_addr=ip.dlbtizi.net:1357 \
-    -e redis_password=damai \
-    -e redis_db=0 \
-    -e conn_limit_expiry=60 \
-    vaxilu/soga:2.10.6
-    
-    docker run --restart=always --name yitba -d \
-    -v /etc/soga/:/etc/soga/ --network host \
-    -e type=sspanel-uim \
-    -e server_type=v2ray \
     -e node_id=383 \
     -e soga_key=uGzrFQjjdfTMmIsILudfeW1s5SDkGWw4 \
     -e api=webapi \
@@ -69,9 +50,32 @@ function v2ray(){
     -e redis_password=damai \
     -e redis_db=0 \
     -e conn_limit_expiry=60 \
-    vaxilu/soga:2.10.6
+    -e user_conn_limit=6 \
+    vaxilu/soga:2.10.7
+    
+    docker run --restart=always --name yitba -d \
+    -v /etc/soga/:/etc/soga/ --network host \
+    -e type=sspanel-uim \
+    -e server_type=v2ray \
+    -e node_id=384 \
+    -e soga_key=uGzrFQjjdfTMmIsILudfeW1s5SDkGWw4 \
+    -e api=webapi \
+    -e webapi_url=https://dlbtizi.net/ \
+    -e webapi_key=dong \
+    -e proxy_protocol=true \
+    -e force_vmess_aead=true \
+    -e tunnel_proxy_protocol=true \
+    -e redis_enable=true \
+    -e redis_addr=ip.dlbtizi.net:1357 \
+    -e redis_password=damai \
+    -e redis_db=0 \
+    -e conn_limit_expiry=60 \
+    -e user_conn_limit=6 \
+    vaxilu/soga:2.10.7
 
-    docker run --restart=on-failure --name d1 -d \
+
+
+    docker run --restart=always --name d1 -d \
     -v /etc/soga/:/etc/soga/ --network host \
     -e type=v2board \
     -e server_type=v2ray \
@@ -88,7 +92,8 @@ function v2ray(){
     -e redis_password=damai \
     -e redis_db=1 \
     -e conn_limit_expiry=60 \
-    vaxilu/soga:2.10.6
+    -e user_conn_limit=4 \
+    vaxilu/soga:2.10.7
 
     echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
     echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
