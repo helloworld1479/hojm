@@ -6,8 +6,8 @@ set -o pipefail
 # Config
 CFKEY="754562d8862d840a8eb6009745b79fc352610"
 CFUSER="6733268@gmail.com"
-CFZONE_NAMES=("d-f4.com" "888888881.xyz")
-CFRECORD_NAMES=("hkbgp" "hkie")
+CFZONE_NAMES=("iosqq.top" "888888881.xyz")
+CFRECORD_NAMES=("hhhkbgp" "hkie")
 CFTTL=1
 FORCE=false
 WANIPSITE="http://ipv4.icanhazip.com"
