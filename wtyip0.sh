@@ -14,13 +14,16 @@ FORCE=false
 WANIPSITE="http://ipv4.icanhazip.com"
 
 # 从命令行覆盖默认记录名称
-while getopts "h:" opt; do
+while getopts "h:f" opt; do
   case ${opt} in
     h)
-      CFRECORD_NAME=${OPTARG}
+      CFRECORD_NAME=${OPTARG}  # 设置记录名称
+      ;;
+    f)
+      FORCE=true  # 启用强制更新
       ;;
     \?)
-      echo "Invalid option: $OPTARG" 1>&2
+      echo "Invalid option: -$OPTARG" 1>&2
       exit 1
       ;;
   esac
@@ -60,4 +63,6 @@ if [ "$WAN_IP" != "$OLD_WAN_IP" ] || [ "$FORCE" = true ]; then
   fi
 else
   echo "WAN IP unchanged, to update anyway use -f true"
+  echo "Hostname: $CFRECORD_NAME"
+  echo "Force Update: $FORCE"
 fi
