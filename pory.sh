@@ -77,15 +77,15 @@ function v2ray(){
     docker run --restart=always --name d1 -d \
     -v /etc/soga/:/etc/soga/ --network host \
     -e type=v2board \
-    -e server_type=v2ray \
-    -e node_id=13 \
+    -e server_type=ss \
+    -e node_id=16 \
     -e soga_key=updIcri6AetCowe89dlc70XQsk7C9lxs \
     -e api=webapi \
     -e webapi_url=https://888888881.xyz/ \
     -e webapi_key=iRMUl4OeUWRmUH8e \
     -e proxy_protocol=true \
-    -e force_vmess_aead=true \
     -e tunnel_proxy_protocol=true \
+    -e udp_proxy_protocol=true \
     -e redis_enable=true \
     -e redis_addr=ip.dlbtizi.net:1357 \
     -e redis_password=damai \
