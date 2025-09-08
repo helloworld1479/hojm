@@ -73,15 +73,15 @@ function v2ray(){
     -e user_conn_limit=6 \
     vaxilu/soga:2.10.7
 
-    docker run --restart=always --name d1 -d \
+	docker run --restart=always --name d1 -d \
     -v /etc/soga/:/etc/soga/ --network host \
-    -e type=v2board \
+    -e type=xiaov2board \
     -e server_type=ss \
-    -e node_id=34 \
+    -e node_id=27 \
     -e soga_key=updIcri6AetCowe89dlc70XQsk7C9lxs \
     -e api=webapi \
     -e webapi_url=https://888888881.xyz/ \
-    -e webapi_key=iRMUl4OeUWRmUH8e \
+    -e webapi_key=PortMUl4OeUW02528c \
     -e proxy_protocol=true \
     -e tunnel_proxy_protocol=true \
     -e udp_proxy_protocol=true \
@@ -91,7 +91,8 @@ function v2ray(){
     -e redis_db=1 \
     -e conn_limit_expiry=60 \
     -e user_conn_limit=4 \
-    vaxilu/soga:2.10.7
+    vaxilu/soga:2.12.7
+    
     
     
   
