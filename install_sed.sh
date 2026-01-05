@@ -24,9 +24,9 @@ sed -i 's/Project stop alarm/项目停止告警/g' /www/server/panel/mod/base/pu
 
 # 修改 base_task.py 消息头格式
 echo "📝 修改消息格式..."
-sed -i 's/#### {}/📌 {}/g' /www/server/panel/mod/base/push_mod/base_task.py
-sed -i 's/>Server:/🖥️ 服务器:/g' /www/server/panel/mod/base/push_mod/base_task.py
-sed -i 's/>SendingTime:/📅 发送时间:/g' /www/server/panel/mod/base/push_mod/base_task.py
+sed -i 's/#### {}/*📌 {}*/g' /www/server/panel/mod/base/push_mod/base_task.py
+sed -i 's/>Server:/🖥️ Server:/g' /www/server/panel/mod/base/push_mod/base_task.py
+sed -i 's/>SendingTime:/📅 Time:/g' /www/server/panel/mod/base/push_mod/base_task.py
 sed -i 's/">IPAddress.*Internal)"/""/' /www/server/panel/mod/base/push_mod/base_task.py
 
 # 修改 tg_msg.py 中的 <br> 为 \n
