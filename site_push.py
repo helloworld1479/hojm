@@ -532,17 +532,22 @@ class PanelLoginTask(BaseTask):
             'name': '[' + push_data.get("ip") + ']',
             'time': time.strftime('%Y-%m-%d %X', time.localtime()),
             'type': '[' + push_data.get("is_type") + ']',
-            'user': push_data.get("username")
+            'user': push_data.get("")
         }
 
     def to_wx_account_msg(self, push_data: dict, push_public_data: dict) -> WxAccountMsg:
-        msg = WxAccountLoginMsg.new_msg()
-        msg.thing_type = "aaPanel login reminders"
-        msg.login_name = push_data.get("username")
-        msg.login_ip = push_data.get("login_ip")
-        msg.login_type = push_data.get("is_type")
-        msg.address = push_data.get("login_ip_area")
-        return msg
+            msg = WxAccountLoginMsg.new_msg()
+            msg.thing_type = "面板登录提醒"
+            msg.login_name = push_data.get("")
+            login_ip = push_data.get("login_ip", "")
+            if login_ip and "." in login_ip:
+                parts = login_ip.split(".")
+                msg.login_ip = f"{parts[0]}.{parts[1]}.*.*"
+            else:
+                msg.login_ip = "***"
+            msg.login_type = push_data.get("is_type")
+            msg.address = push_data.get("login_ip_area")
+            return msg
 
     def task_config_update_hook(self, task: dict) -> None:
         # import public
