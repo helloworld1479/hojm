@@ -11,6 +11,49 @@ CFRECORD_NAMES=("sgp03" "nl")
 CFTTL=1
 FORCE=false
 WANIPSITE="http://ipv4.icanhazip.com"
+COMMENT="DJ-荷兰"  # 设置备注，所有解析记录都用这个备注
+
+# Function to check if DNS record exists
+check_dns_record() {
+    local ZONE_NAME="${1}"
+    local RECORD_NAME="${2}"
+
+    # Get zone_identifier
+    CFZONE_ID=$(curl -s -X GET "https://api.cloudflare.com/client/v4/zones?name=${ZONE_NAME}" -H "X-Auth-Email: ${CFUSER}" -H "X-Auth-Key: ${CFKEY}" -H "Content-Type: application/json" | grep -Po '(?<="id":")[^"]*' | head -1 )
+
+    # Check if record exists
+    CFRECORD_ID=$(curl -s -X GET "https://api.cloudflare.com/client/v4/zones/${CFZONE_ID}/dns_records?name=${RECORD_NAME}.${ZONE_NAME}" -H "X-Auth-Email: ${CFUSER}" -H "X-Auth-Key: ${CFKEY}" -H "Content-Type: application/json" | grep -Po '(?<="id":")[^"]*' | head -1 )
+
+    if [[ -z "${CFRECORD_ID}" ]]; then
+        return 1  # Record does not exist
+    else
+        return 0  # Record exists
+    fi
+}
+
+# Function to create a new DNS record
+create_dns_record() {
+    local ZONE_NAME="${1}"
+    local RECORD_NAME="${2}"
+
+    # Get zone_identifier
+    CFZONE_ID=$(curl -s -X GET "https://api.cloudflare.com/client/v4/zones?name=${ZONE_NAME}" -H "X-Auth-Email: ${CFUSER}" -H "X-Auth-Key: ${CFKEY}" -H "Content-Type: application/json" | grep -Po '(?<="id":")[^"]*' | head -1 )
+
+    # Create DNS record
+    RESPONSE=$(curl -s -X POST "https://api.cloudflare.com/client/v4/zones/${CFZONE_ID}/dns_records" \
+      -H "X-Auth-Email: ${CFUSER}" \
+      -H "X-Auth-Key: ${CFKEY}" \
+      -H "Content-Type: application/json" \
+      --data "{\"type\":\"A\",\"name\":\"${RECORD_NAME}\",\"content\":\"${WAN_IP}\",\"ttl\":${CFTTL},\"proxied\":false,\"comment\":\"${COMMENT}\"}")
+
+    # Check if creation was successful
+    if [[ "${RESPONSE}" == *'"success":true'* ]]; then
+        echo "Created DNS record for ${RECORD_NAME}.${ZONE_NAME} with IP ${WAN_IP} and comment '${COMMENT}'"
+    else
+        echo "Failed to create DNS record for ${RECORD_NAME}.${ZONE_NAME}"
+        echo "Response: ${RESPONSE}"
+    fi
+}
 
 # Function to update DNS record
 update_dns_record() {
@@ -26,11 +69,11 @@ update_dns_record() {
       -H "X-Auth-Email: ${CFUSER}" \
       -H "X-Auth-Key: ${CFKEY}" \
       -H "Content-Type: application/json" \
-      --data "{\"id\":\"${CFZONE_ID}\",\"type\":\"A\",\"name\":\"${RECORD_NAME}\",\"content\":\"${WAN_IP}\",\"ttl\":${CFTTL}}")
+      --data "{\"id\":\"${CFZONE_ID}\",\"type\":\"A\",\"name\":\"${RECORD_NAME}\",\"content\":\"${WAN_IP}\",\"ttl\":${CFTTL},\"proxied\":false,\"comment\":\"${COMMENT}\"}")
 
     # Check if the update was successful
     if [[ "${RESPONSE}" != *'"success":false'* ]]; then
-        echo "Updated DNS for ${RECORD_NAME}.${ZONE_NAME} to ${WAN_IP}"
+        echo "Updated DNS for ${RECORD_NAME}.${ZONE_NAME} to ${WAN_IP} with comment '${COMMENT}'"
     else
         echo "Failed to update DNS for ${RECORD_NAME}.${ZONE_NAME}"
         echo "Response: ${RESPONSE}"
@@ -40,9 +83,17 @@ update_dns_record() {
 # Get current WAN IP
 WAN_IP=$(curl -s ${WANIPSITE})
 
-# Loop through the domain records and update each one
+# Loop through the domain records and update or create each one
 for i in "${!CFZONE_NAMES[@]}"; do
     ZONE_NAME="${CFZONE_NAMES[$i]}"
     RECORD_NAME="${CFRECORD_NAMES[$i]}"
-    update_dns_record "${ZONE_NAME}" "${RECORD_NAME}"
+
+    # Check if DNS record exists
+    if check_dns_record "${ZONE_NAME}" "${RECORD_NAME}"; then
+        echo "DNS record for ${RECORD_NAME}.${ZONE_NAME} exists, updating..."
+        update_dns_record "${ZONE_NAME}" "${RECORD_NAME}"
+    else
+        echo "DNS record for ${RECORD_NAME}.${ZONE_NAME} does not exist, creating..."
+        create_dns_record "${ZONE_NAME}" "${RECORD_NAME}"
+    fi
 done
