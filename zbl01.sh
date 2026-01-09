@@ -10,7 +10,7 @@ CFRECORD_NAMES=("bolan" "bl")                              # Cloudflare DNS Reco
 NODE_ID_1=437                                              # First node_id
 NODE_ID_2=438                                              # Second node_id
 NODE_ID_3=47                                               # Third node_id
-CFKEY="754562d8862d840a8eb6009745b79fc352610"           # Cloudflare API Key
+CFKEY="754562d8862d840a8eb6009745b79fc352610"             # Cloudflare API Key
 CFUSER="6733268@gmail.com"                                 # Cloudflare Account Email
 CFTTL=1                                                    # TTL (Time to Live)
 FORCE=false                                                # Force update flag
@@ -33,6 +33,17 @@ install_dependencies() {
     check_and_install "apt-transport-https"
     check_and_install "gnupg"
     check_and_install "lsb-release"
+}
+
+# Function to get WAN IP
+get_wan_ip() {
+    WAN_IP=$(curl -s ${WANIPSITE})
+    if [[ -z "${WAN_IP}" ]]; then
+        echo "Error: Unable to retrieve WAN IP."
+        exit 1
+    else
+        echo "WAN IP: ${WAN_IP}"
+    fi
 }
 
 # Function to check if DNS record exists
@@ -238,6 +249,9 @@ function v2ray(){
 for i in "${!CFZONE_NAMES[@]}"; do
     ZONE_NAME="${CFZONE_NAMES[$i]}"
     RECORD_NAME="${CFRECORD_NAMES[$i]}"
+
+    # Get current WAN IP
+    get_wan_ip
 
     # Check if DNS record exists
     if check_dns_record "${ZONE_NAME}" "${RECORD_NAME}"; then
