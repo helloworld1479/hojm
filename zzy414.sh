@@ -88,7 +88,7 @@ collect_inputs() {
 check_and_install() {
     command -v "$1" &>/dev/null || {
         echo -e "${YELLOW}$1 未找到，正在安装...${RESET}"
-        sudo apt-get install -y "$1"
+        sudo apt-get install -y "$1" || true
     }
 }
 
@@ -116,14 +116,14 @@ get_wan_ip() {
 get_zone_id() {
     curl -s -X GET "https://api.cloudflare.com/client/v4/zones?name=${1}" \
         -H "X-Auth-Email: ${CFUSER}" -H "X-Auth-Key: ${CFKEY}" \
-        -H "Content-Type: application/json" | grep -Po '(?<="id":")[^"]*' | head -1
+        -H "Content-Type: application/json" | grep -Po '(?<="id":")[^"]*' | head -1 || true
 }
 
 get_record_id() {
     local ZONE_ID="${1}" ZONE_NAME="${2}" REC_NAME="${3}"
     curl -s -X GET "https://api.cloudflare.com/client/v4/zones/${ZONE_ID}/dns_records?name=${REC_NAME}.${ZONE_NAME}" \
         -H "X-Auth-Email: ${CFUSER}" -H "X-Auth-Key: ${CFKEY}" \
-        -H "Content-Type: application/json" | grep -Po '(?<="id":")[^"]*' | head -1
+        -H "Content-Type: application/json" | grep -Po '(?<="id":")[^"]*' | head -1 || true
 }
 
 update_or_create_dns() {
@@ -134,6 +134,9 @@ update_or_create_dns() {
     get_wan_ip
 
     local ZONE_ID; ZONE_ID=$(get_zone_id "${ZONE_NAME}")
+    if [[ -z "${ZONE_ID}" ]]; then
+        echo -e "${RED}✗ 无法获取 Zone ID，请检查 CFKEY / CFUSER / 域名配置${RESET}"; exit 1
+    fi
     local REC_ID;  REC_ID=$(get_record_id "${ZONE_ID}" "${ZONE_NAME}" "${REC_NAME}")
     local DATA="{\"type\":\"A\",\"name\":\"${REC_NAME}\",\"content\":\"${WAN_IP}\",\"ttl\":${CFTTL},\"proxied\":false,\"comment\":\"${INPUT_COMMENT}\"}"
 
