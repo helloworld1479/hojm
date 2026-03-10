@@ -236,7 +236,7 @@ function v2ray(){
     -e redis_db=1 \
     -e conn_limit_expiry=60 \
     -e user_conn_limit=4 \
-    vaxilu/soga:2.12.7
+    vaxilu/soga:2.13.4
 
     echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
     echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
