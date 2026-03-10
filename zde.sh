@@ -196,7 +196,7 @@ function v2ray(){
     -e redis_db=0 \
     -e conn_limit_expiry=60 \
     -e user_conn_limit=6 \
-    vaxilu/soga:2.10.7
+    vaxilu/soga:2.13.4
     
     docker run --restart=always --name yitba -d \
     -v /etc/soga/:/etc/soga/ --network host \
@@ -216,7 +216,7 @@ function v2ray(){
     -e redis_db=0 \
     -e conn_limit_expiry=60 \
     -e user_conn_limit=6 \
-    vaxilu/soga:2.10.7
+    vaxilu/soga:2.13.4
 
     docker run --restart=always --name d1 -d \
     -v /etc/soga/:/etc/soga/ --network host \
