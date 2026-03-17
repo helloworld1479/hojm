@@ -169,7 +169,7 @@ function install_docker(){
 # Start v2ray backend setup
 function v2ray(){
     echo "### 安装 v2ray 后端 ###"
-    sysctl -p /etc/sysctl.conf
+    [[ -f /etc/sysctl.conf ]] && sysctl -p /etc/sysctl.conf
 
     # Install dependencies
     install_dependencies
